@@ -1,0 +1,44 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZSDGW_GESTION_COTIZACIONES_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="Cotizaciones" sap:content-version="1">
+				<Key><PropertyRef Name="Cotizacion"/><PropertyRef Name="Cliente"/></Key><Property Name="Cotizacion" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Sales Document"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Cliente" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Telefono" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Telephone 1"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="ValorTotal" Type="Edm.Decimal" Nullable="false" Precision="14" Scale="3" sap:unicode="false" sap:unit="Moneda"
+					sap:label="Subtotal 5" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FechaCreacion" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Created On"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FechaEstimada" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Valid to"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Probabilidad" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Order probab."
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Exito" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Order probab." sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Abiertas" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Number" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Llamadas" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Number" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Visitas" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Number" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Whatsapp" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Number" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Actividad" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Comentario"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Modificaciones" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Number"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Moneda" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Doc. Currency" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/></EntityType>
+			<EntityType Name="Estados" sap:content-version="1">
+				<Key><PropertyRef Name="Estado"/><PropertyRef Name="Mandt"/></Key><Property Name="Estado" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Client" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="TipoActividad" sap:content-version="1">
+				<Key><PropertyRef Name="Mandt"/><PropertyRef Name="Tipoactividad"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Client" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Tipoactividad" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Actividad" sap:content-version="1">
+				<Key><PropertyRef Name="Mandt"/><PropertyRef Name="Cotizacion"/></Key><Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Client" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Cotizacion" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Sales Document"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Tipoactividad" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Descripcion" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Text" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Fecha" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Estado" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityContainer Name="ZSDGW_GESTION_COTIZACIONES_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="CotizacionSet" EntityType="ZSDGW_GESTION_COTIZACIONES_SRV.Cotizaciones" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="EstadosSet" EntityType="ZSDGW_GESTION_COTIZACIONES_SRV.Estados" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="TipoActividadSet" EntityType="ZSDGW_GESTION_COTIZACIONES_SRV.TipoActividad" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="ActividadSet" EntityType="ZSDGW_GESTION_COTIZACIONES_SRV.Actividad" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/></EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZSDGW_GESTION_COTIZACIONES_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZSDGW_GESTION_COTIZACIONES_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

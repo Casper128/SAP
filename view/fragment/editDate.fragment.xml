@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
+	<Dialog title="{i18n>changeDate}">
+		<l:VerticalLayout class="sapUiContentPadding" width="100%">
+			<l:content>
+				<Label text="{i18n>date}"/>
+				<DatePicker
+					value="{path: 'date>/Fechaestimada', type: 'sap.ui.model.type.Date', formatOptions: {pattern: 'dd/MM/yyyy', strictParsing: true , UTC: true}}"
+					width="100%"/>
+				<Label text=" {i18n>probability}"/>
+				<StepInput value="{date>/Probabilidad}" min="0" max="100" step="1" largerStep="10"/>
+			</l:content>
+		</l:VerticalLayout>
+		<beginButton>
+			<Button type="Accept" text="{i18n>save}" press="onSaveDate"/>
+		</beginButton>
+		<endButton>
+			<Button type="Reject" text="{i18n>cancel}" press="onClose"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

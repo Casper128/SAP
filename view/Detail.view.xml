@@ -1,0 +1,95 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	controllerName="alfa.com.co.zui5_gestioncotizaciones.controller.Detail" height="100%">
+	<ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true" upperCaseAnchorBar="false">
+		<headerTitle>
+			<ObjectPageDynamicHeaderTitle>
+				<heading>
+					<m:Title text="{detail>/Nombrecliente}"/>
+				</heading>
+				<snappedTitleOnMobile>
+					<m:Title text="{detail>/Nombrecliente}"/>
+				</snappedTitleOnMobile>
+				<actions>
+					<m:Button text="{i18n>newActivity}" type="Emphasized" press="onAddActivity"/>
+					<!--<m:Button type="Transparent" text="Crear pedido"/>-->
+					<!--<m:Button type="Transparent" text="Generar notificacion"/>-->
+					<!--<m:OverflowToolbarButton icon="sap-icon://action" type="Transparent" text="Share" tooltip="action"/>-->
+					<m:OverflowToolbarButton icon="sap-icon://nav-back" type="Transparent" text="Share" tooltip="action" press="window.history.go(-1)"/>
+				</actions>
+			</ObjectPageDynamicHeaderTitle>
+		</headerTitle>
+		<sections>
+			<ObjectPageSection titleUppercase="false" title="{i18n>infoClient}">
+				<subSections>
+					<ObjectPageSubSection title="{i18n>infoClient}" mode="Expanded" id="Section1" titleUppercase="false">
+						<blocks>
+							<ObjectPageLazyLoader stashed="true" id="Section1stashed">
+								<m:VBox class="sapUiSmallMargin">
+									<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="false" layout="ResponsiveGridLayout" labelSpanL="12" labelSpanM="12"
+										emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2" width="auto" class="sapUxAPObjectPageSubSectionAlignContent">
+										<f:content>
+											<core:Title text="{i18n>infoClient}"/>
+											<m:Label text="{i18n>clientName}"/>
+											<m:Text text="{detail>/Nombrecliente}"/>
+											<m:Label text="{i18n>address}"/>
+											<m:Text text="{detail>/Direccion}"/>
+											<m:Label text="{i18n>city}"/>
+											<m:Text text="{detail>/Ciudad}"/>
+											<m:Label text="{i18n>telephone}"/>
+											<m:Text text="{detail>/Telcliente}"/>
+											<core:Title text="{i18n>coti}"/>
+											<m:Label text="{i18n>vbeln}"/>
+											<m:Text text="{detail>/Vbeln}"/>
+											<!--<m:Label text="{i18n>status}"/>-->
+											<!--<m:Text text="{detail>/Estado}"/>-->
+											<m:Label text="{i18n>total}"/>
+											<m:Text text="{ path: 'detail>/Valor', type: 'sap.ui.model.type.Float', formatOptions: { minIntegerDigits: 0, preserveDecimals: true } }"/>
+											<!--<m:Text text="{detail>/Valor}"/>-->
+											<m:Label text="{i18n>endDate}"/>
+											<m:HBox>
+												<m:Text text="{ path: 'detail>/Fechaestimada', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd MMM yyyy', UTC: true } }"/>
+												<core:Icon src="sap-icon://edit" press="onEditDate"/>
+											</m:HBox>
+											<m:Label text="{i18n>probability}"/>
+											<m:HBox>
+												<m:Text text="{detail>/Probabilidad2}%"/>
+												<core:Icon src="sap-icon://edit" press="onEditDate"/>
+											</m:HBox>
+											<m:Label text="{i18n>begDate}"/>
+											<m:Text text="{ path: 'detail>/Fechacreacion', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd MMM yyyy', UTC: true } }"/>
+										</f:content>
+									</f:SimpleForm>
+								</m:VBox>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection titleUppercase="false" title="Actividades">
+				<subSections>
+					<ObjectPageSubSection title="{i18n>activities}" mode="Expanded" id="Section3" titleUppercase="false">
+						<blocks>
+							<ObjectPageLazyLoader stashed="true" id="Section3stashed">
+								<m:VBox class="sapUiSmallMargin">
+									<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="false" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+										emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" width="auto" class="sapUxAPObjectPageSubSectionAlignContent">
+										<f:content>
+											<m:List headerText="Actividades" items="{ path: 'detail>/Activities', filters: [{ path: 'Estado', operator: 'NE', value1: 'Cerrada' }]}"
+												width="100%">
+												<m:FeedListItem sender="{detail>Modificado}" icon="sap-icon://edit-outside" iconDensityAware="false" info="{detail>Tipoactividad}"
+													timestamp="{ path: 'detail>Fecha', type: 'sap.ui.model.odata.type.Date', formatOptions: { pattern: 'dd MMM yyyy', UTC: true } } - {path : 'detail>Hora', type : 'sap.ui.model.odata.type.Time' ,formatOptions:{ source: {pattern: 'timestamp'}, pattern : 'HH:mm'}} - {detail>Estado}"
+													text="{detail>Descripcion}" convertLinksToAnchorTags="All" actions="{path: 'Actions', templateShareable: false}" iconPress="onEdit">
+													<m:FeedListItemAction text="{detail>Estado}" icon="{Icon}" key="{Key}" press="onEdit"/>
+												</m:FeedListItem>
+											</m:List>
+										</f:content>
+									</f:SimpleForm>
+								</m:VBox>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+</mvc:View>

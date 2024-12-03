@@ -1,0 +1,128 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="/sap/opu/odata/sap/ZSDGW_GESTION_COTIZACIONES_SRV/$metadata">
+		<edmx:Include Alias="Metadata" Namespace="ZSDGW_GESTION_COTIZACIONES_SRV"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm"
+			Namespace="zui5_gestioncotizaciones.annotations.dashboards.ZSDGW_GESTION_COTIZACIONES_SRV">
+			<Annotations Target="Metadata.Cotiz">
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Vbeln"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Name1"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Telf1"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Erdat"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Bnddt"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Netwr"/>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.DashActividad">
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Id"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Cotizacion"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Tipoactividad"/>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.Actividades">
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Cotizacion"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Tipoactividad"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Fecha"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Estado"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Descripcion"/>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.Actividades/Id">
+				<Annotation Term="UI.Hidden" Bool="true"/>
+				<Annotation Term="UI.HiddenFilter" Bool="true"/>
+			</Annotations>
+			<Annotations Target="Metadata.Actividades/Ultima">
+				<Annotation Term="Common.FilterDefaultValue" String="X"/>
+			</Annotations>
+			<Annotations Target="Metadata.Cotiz/Ncoti">
+				<Annotation Term="Common.Label" String="{@i18n&gt;ncoti}"/>
+			</Annotations>
+			<Annotations Target="Metadata.Cotiz/Name1">
+				<Annotation Term="Common.Label" String="{@i18n&gt;clientName}"/>
+			</Annotations>
+			<Annotations Target="Metadata.Cotiz/Telf1">
+				<Annotation Term="Common.Label" String="{@i18n&gt;telephone}"/>
+			</Annotations>
+			<Annotations Target="Metadata.Cotiz/Netwr">
+				<Annotation Term="Common.Label" String="{@i18n&gt;total}"/>
+			</Annotations>
+			<Annotations Target="Metadata.Cotiz/Nwhatsapp">
+				<Annotation Term="Common.Label" String="{@i18n&gt;nWhatsapp}"/>
+			</Annotations>
+			<Annotations Target="Metadata.Cotiz/Nllamadas">
+				<Annotation Term="Common.Label" String="{@i18n&gt;nLlamadas}"/>
+			</Annotations>
+			<Annotations Target="Metadata.Cotiz/Nvisitas">
+				<Annotation Term="Common.Label" String="{@i18n&gt;nVisita}"/>
+			</Annotations>
+			<Annotations Target="Metadata.Cotiz/Erdat">
+				<Annotation Term="Common.Label" String="{@i18n&gt;begDate}"/>
+			</Annotations>
+			<Annotations Target="Metadata.Cotiz/Bnddt">
+				<Annotation Term="Common.Label" String="{@i18n&gt;endDate}"/>
+			</Annotations>
+			<Annotations Target="Metadata.Cotiz/Awahr">
+				<Annotation Term="Common.Label" String="{@i18n&gt;probability}"/>
+			</Annotations>
+			<Annotations Target="Metadata.Cotiz/Ultima">
+				<Annotation Term="Common.Label" String="{@i18n&gt;last}"/>
+			</Annotations>
+			<Annotations Target="Metadata.Cotiz/Vbeln">
+				<Annotation Term="Common.Label" String="{@i18n&gt;vbeln}"/>
+			</Annotations>
+			<Annotations Target="Metadata.Actividades/Descripcion">
+				<Annotation Term="Common.Label" String="{@i18n&gt;description}"/>
+			</Annotations>
+			<Annotations Target="Metadata.Actividades/Ultimaact">
+				<Annotation Term="Common.Label" String="{@i18n&gt;lastDate}"/>
+			</Annotations>
+			<Annotations Target="Metadata.Actividades/Ultima">
+				<Annotation Term="Common.Label" String="{@i18n&gt;last}"/>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

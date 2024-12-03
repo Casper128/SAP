@@ -1,0 +1,23 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="{i18n>showActivity}">
+		<VBox class="sapUiSmallMargin">
+			<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="false" layout="ResponsiveGridLayout" title="{i18n>activitiesDone}"
+				labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" width="auto"
+				class="sapUxAPObjectPageSubSectionAlignContent">
+				<f:content>
+					<List headerText="{i18n>activities}" items="{detail>/Activities}">
+						<FeedListItem sender="{detail>Modificado}" icon="{AuthorPicUrl}" senderPress="onPress" iconPress="onPress" iconDensityAware="false"
+							info="{detail>Tipoactividad}"
+							timestamp="{path: 'detail>Fecha', type: 'sap.ui.model.odata.type.Date', formatOptions: {pattern: 'dd MMM yyyy', UTC: true}}"
+							text="{detail>Descripcion}" convertLinksToAnchorTags="All" actions="{path: 'Actions', templateShareable: false}">
+							<FeedListItemAction text="{Text}" icon="{Icon}" key="{Key}" press="onActionPressed"/>
+						</FeedListItem>
+					</List>
+				</f:content>
+			</f:SimpleForm>
+		</VBox>
+		<endButton>
+			<Button type="Reject" text="{i18n>cancel}" press="onCloseDialog"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

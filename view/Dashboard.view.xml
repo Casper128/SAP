@@ -1,0 +1,165 @@
+<mvc:View controllerName="alfa.com.co.zui5_gestioncotizaciones.controller.Dashboard" displayBlock="true" xmlns:core="sap.ui.core"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:u="sap.ui.unified" height="100%">
+	<Page id="page" title="{i18n>title}">
+		<content>
+			<TabContainer>
+				<items >
+					<TabContainerItem name="{i18n>cotizaciones}">
+						<content>
+							<smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="CotizSet" persistencyKey="UniqueAndStablePersistencyKey">
+								<smartFilterBar:controlConfiguration>
+									<smartFilterBar:ControlConfiguration key="Erdat" visibleInAdvancedArea="true"></smartFilterBar:ControlConfiguration>
+								</smartFilterBar:controlConfiguration>
+							</smartFilterBar:SmartFilterBar>
+							<smartTable:SmartTable id="CotizacionesSmartTable" entitySet="CotizSet" smartFilterId="smartFilterBar" tableType="Table"
+								useExportToExcel="false" useVariantManagement="true" useTablePersonalisation="true" showTablePersonalisation="true" header="Cotizaciones"
+								showRowCount="true" persistencyKey="UniqueAndStablePersistencyKey" enableAutoBinding="true" demandPopin="true"
+								class="sapUiResponsiveContentPadding" beforeRebindTable="onBeforeRebindTable">
+								<Table growing="true">
+									<columns>
+										<Column hAlign="Begin">
+											<Text text="{i18n>vbeln}"/>
+											<customData>
+												<core:CustomData key="p13nData"
+													value='\{"columnKey": "Vbeln","columnIndex":"1", "leadingProperty": "Vbeln", "sortProperty": "Vbeln","filterProperty":"Vbeln", "autoColumnWidth": \{"gap": -4} }'/>
+											</customData>
+										</Column>
+										<Column hAlign="Begin">
+											<Text text="{i18n>begDate}"/>
+											<customData>
+												<core:CustomData key="p13nData"
+													value='\{"columnKey": "Erdat","columnIndex":"4", "leadingProperty": "Erdat", "sortProperty": "Erdat","filterProperty":"Erdat", "autoColumnWidth": \{"gap": -4} }'/>
+											</customData>
+										</Column>
+										<Column hAlign="Begin">
+											<Text text="{i18n>endDate}"/>
+											<customData>
+												<core:CustomData key="p13nData"
+													value='\{"columnKey": "Bnddt","columnIndex":"5", "leadingProperty": "Bnddt", "sortProperty": "Bnddt","filterProperty":"Bnddt", "autoColumnWidth": \{"gap": -4} }'/>
+											</customData>
+										</Column>
+										<Column hAlign="Begin">
+											<Text text="{i18n>total}"/>
+											<customData>
+												<core:CustomData key="p13nData"
+													value='\{"columnKey": "Netwr","columnIndex":"6", "leadingProperty": "Netwr", "sortProperty": "Netwr","filterProperty":"Netwr", "autoColumnWidth": \{"gap": -4} }'/>
+											</customData>
+										</Column>
+										<Column hAlign="Begin">
+											<Text text="{i18n>probability}"/>
+											<customData>
+												<core:CustomData key="p13nData"
+													value='\{"columnKey": "Awahr","columnIndex":"8", "leadingProperty": "Awahr", "sortProperty": "Awahr","filterProperty":"Awahr", "autoColumnWidth": \{"gap": -4} }'/>
+											</customData>
+										</Column>
+										<Column hAlign="Begin">
+											<Text text="{i18n>actions}"/>
+											<customData>
+												<core:CustomData key="p13nData"
+													value='\{"columnKey": "Kunnr","columnIndex":"0", "leadingProperty": "Kunnr","autoColumnWidth": \{"gap": -4} }'/>
+											</customData>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem>
+											<cells>
+												<Link text="{Vbeln}" press="onDetail"/>
+												<Text text="{ path: 'Erdat', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd MMM yyyy', UTC: true } }"/>
+												<Text text="{ path: 'Bnddt', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd MMM yyyy', UTC: true } }"/>
+												<!--<ObjectNumber class="sapUiSmallMarginBottom"-->
+												<!--	number="{ parts:[{path:'Netwr'},{path:'Waerk'}], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false, preserveDecimals: false} }"-->
+												<!--	unit="{Waerk}"/>-->
+												<Text text="{ path: 'Netwr', type: 'sap.ui.model.type.Float', formatOptions: { minIntegerDigits: 0, preserveDecimals: true } }"/>
+												<!--<Text text="{Netwr}"/>-->
+												<Text text="{Awahr}%"/>
+												<HBox>
+													<OverflowToolbarButton icon="sap-icon://activities" tooltip="Ver actividades" press="onActivities">
+														<customData>
+															<core:CustomData key="Vbeln" value="{Vbeln}"/>
+														</customData>
+													</OverflowToolbarButton>
+													<OverflowToolbarButton icon="sap-icon://add-activity" tooltip="Crear nueva actividad" press="onAddActivity">
+														<customData>
+															<core:CustomData key="Vbeln" value="{Vbeln}"/>
+															<core:CustomData key="Erdat" value="{Erdat}"/>
+														</customData>
+													</OverflowToolbarButton>
+												</HBox>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</smartTable:SmartTable>
+						</content>
+					</TabContainerItem>
+					<TabContainerItem name="{i18n>activities}">
+						<content>
+							<smartFilterBar:SmartFilterBar id="smartFilterBar2" entitySet="ActividadesSet" persistencyKey="UniqueAndStablePersistencyKey2">
+								<smartFilterBar:controlConfiguration>
+									<smartFilterBar:ControlConfiguration key="Ultima" visibleInAdvancedArea="true"></smartFilterBar:ControlConfiguration>
+								</smartFilterBar:controlConfiguration>
+							</smartFilterBar:SmartFilterBar>
+							<smartTable:SmartTable id="ActivitiesSmartTable" entitySet="ActividadesSet" smartFilterId="smartFilterBar2" tableType="ResponsiveTable"
+								useExportToExcel="false" useVariantManagement="true" useTablePersonalisation="true" showTablePersonalisation="true" header="Actividades"
+								showRowCount="true" persistencyKey="UniqueAndStablePersistencyKey2" enableAutoBinding="true" demandPopin="true"
+								class="sapUiResponsiveContentPadding">
+								<Table growing="true">
+									<columns>
+										<Column hAlign="Begin">
+											<Text text="{i18n>Cotizacion}"/>
+											<customData>
+												<core:CustomData key="p13nData"
+													value='\{"columnKey": "Cotizacion","columnIndex":"0", "leadingProperty": "Cotizacion", "sortProperty": "Cotizacion","filterProperty":"Cotizacion", "autoColumnWidth": \{"gap": -4} }'/>
+											</customData>
+										</Column>
+										<Column hAlign="Begin">
+											<Text text="{i18n>Tipoactividad}"/>
+											<customData>
+												<core:CustomData key="p13nData"
+													value='\{"columnKey": "Tipoactividad","columnIndex":"1", "leadingProperty": "Tipoactividad", "sortProperty": "Tipoactividad","filterProperty":"Tipoactividad", "autoColumnWidth": \{"gap": -4} }'/>
+											</customData>
+										</Column>
+										<Column hAlign="Begin">
+											<Text text="{i18n>Fecha}"/>
+											<customData>
+												<core:CustomData key="p13nData"
+													value='\{"columnKey": "Fecha","columnIndex":"2", "leadingProperty": "Fecha", "sortProperty": "Fecha","filterProperty":"Fecha", "autoColumnWidth": \{"gap": -4} }'/>
+											</customData>
+										</Column>
+										<Column hAlign="Begin">
+											<Text text="{i18n>Estado}"/>
+											<customData>
+												<core:CustomData key="p13nData"
+													value='\{"columnKey": "Estado","columnIndex":"3", "leadingProperty": "Estado", "sortProperty": "Estado","filterProperty":"Estado", "autoColumnWidth": \{"gap": -4} }'/>
+											</customData>
+										</Column>
+										<Column hAlign="Begin">
+											<Text text="{i18n>Descripcion}"/>
+											<customData>
+												<core:CustomData key="p13nData"
+													value='\{"columnKey": "Descripcion","columnIndex":"4", "leadingProperty": "Descripcion", "sortProperty": "Descripcion","filterProperty":"Descripcion", "autoColumnWidth": \{"gap": -4} }'/>
+											</customData>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem>
+											<cells>
+												<Text text="{Cotizacion}"/>
+												<Text text="{Tipoactividad}"/>
+												<Text text="{Fecha}"/>
+												<Text text="{Estado}"/>
+												<Text text="{Descripcion}"/>
+												<!--<Text text="{ path: 'Fecha', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'MMM dd, yyyy', UTC: true } }"/>-->
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</smartTable:SmartTable>
+						</content>
+					</TabContainerItem>
+				</items>
+			</TabContainer>
+		</content>
+	</Page>
+</mvc:View>

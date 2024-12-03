@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
+	<Dialog title="{i18n>createActivity}">
+		<l:VerticalLayout class="sapUiContentPadding" width="100%">
+			<l:content>
+				<Label text="{i18n>activityType}"/>
+				<Select forceSelection="false" selectedKey="{activity>/Tipoactividad}" items="{ path: 'list>/TipoActividad' }" width="100%">
+					<core:Item key="{list>text}" text="{list>text}"/>
+				</Select>
+				<Label text="{i18n>description}"/>
+				<TextArea value="{activity>/Descripcion}" width="100%"/>
+				<Label text="{i18n>date}"/>
+				<DatePicker
+					value="{path: 'activity>/Fecha', type: 'sap.ui.model.type.Date', formatOptions: {pattern: 'dd/MM/yyyy', strictParsing: true , UTC: true}}"
+					displayFormat="dd/MM/yyyy" width="100%"/>
+				<Label text="{i18n>hour}"/>
+				<TimePicker dateValue="{activity>/Hora}" displayFormat="HH:mm" width="100%"/>
+				<Label text="{i18n>status}"/>
+				<Select forceSelection="false" selectedKey="{activity>/Estado}" items="{ path: 'list>/Estado' }" width="100%">
+					<core:Item key="{list>text}" text="{list>text}"/>
+				</Select>
+			</l:content>
+		</l:VerticalLayout>
+		<beginButton>
+			<Button type="Accept" text="{i18n>save}" press="onSave"/>
+		</beginButton>
+		<endButton>
+			<Button type="Reject" text="{i18n>cancel}" press="onClose"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>
