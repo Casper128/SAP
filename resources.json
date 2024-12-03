@@ -1,85 +1,97 @@
 {
     "resources": [
         {
+            "name": "js/sap-ui-core.js"
+        },
+        {
+            "name": "js/Formatter.js"
+        },
+        {
+            "name": ".project.json"
+        },
+        {
             "name": "css/style.css"
         },
         {
-            "name": "manifest.json"
-        },
-        {
-            "name": "model/models.js"
-        },
-        {
-            "name": "model/DataManagerDAO.js"
-        },
-        {
-            "name": "controller/Detail.controller.js"
-        },
-        {
-            "name": "controller/Dashboard.controller.js"
-        },
-        {
-            "name": "controller/BaseController.js"
-        },
-        {
-            "name": "controller/App.controller.js"
-        },
-        {
-            "name": "serviceBinding.js"
-        },
-        {
-            "name": "Component.js"
+            "name": "index.html"
         },
         {
             "name": "manifest-bundle.zip"
         },
         {
-            "name": "Component-preload.js",
-            "merged": true
+            "name": "resources/sap-ui-version.json"
         },
         {
-            "name": "model/DataManagerDAO-dbg.js",
-            "isDebug": true
+            "name": "Component-dbg.js"
         },
         {
-            "name": "model/models-dbg.js",
-            "isDebug": true
+            "name": "test/testsuite.qunit-dbg.js"
         },
         {
-            "name": "controller/Detail-dbg.controller.js",
-            "isDebug": true
+            "name": "test/testsuite.qunit.html"
         },
         {
-            "name": "controller/Dashboard-dbg.controller.js",
-            "isDebug": true
+            "name": "test/unit/unitTests.qunit.js"
         },
         {
-            "name": "controller/BaseController-dbg.js",
-            "isDebug": true
+            "name": "test/unit/AllTests-dbg.js"
         },
         {
-            "name": "controller/App-dbg.controller.js",
-            "isDebug": true
+            "name": "test/unit/controller/View1-dbg.controller.js"
         },
         {
-            "name": "serviceBinding-dbg.js",
-            "isDebug": true
+            "name": "test/unit/controller/View1.controller.js"
         },
         {
-            "name": "Component-dbg.js",
-            "isDebug": true
+            "name": "test/unit/AllTests.js"
         },
         {
-            "name": "../../../../sap-ui-version.json"
+            "name": "test/unit/unitTests.qunit-dbg.js"
         },
         {
-            "name": "neo-app.json"
+            "name": "test/unit/unitTests.qunit.html"
         },
         {
-            "name": "di.code-validation.core_issues.json"
+            "name": "test/testsuite.qunit.js"
         },
         {
-            "name": "view/fragment/showActivities.fragment.xml"
+            "name": "test/integration/arrangements/Startup.js"
+        },
+        {
+            "name": "test/integration/arrangements/Startup-dbg.js"
+        },
+        {
+            "name": "test/integration/opaTests.qunit-dbg.js"
+        },
+        {
+            "name": "test/integration/opaTests.qunit.js"
+        },
+        {
+            "name": "test/integration/AllJourneys.js"
+        },
+        {
+            "name": "test/integration/NavigationJourney.js"
+        },
+        {
+            "name": "test/integration/NavigationJourney-dbg.js"
+        },
+        {
+            "name": "test/integration/pages/View1.js"
+        },
+        {
+            "name": "test/integration/pages/View1-dbg.js"
+        },
+        {
+            "name": "test/integration/AllJourneys-dbg.js"
+        },
+        {
+            "name": "test/integration/opaTests.qunit.html"
+        },
+        {
+            "name": "view/fragment/createEmail.fragment.xml"
+        },
+        {
+            "name": "view/fragment/ViewerPDF.fragment.xml"
         },
         {
             "name": "view/fragment/editDate.fragment.xml"
@@ -88,7 +100,13 @@
             "name": "view/fragment/editActivity.fragment.xml"
         },
         {
+            "name": "view/fragment/showActivities.fragment.xml"
+        },
+        {
             "name": "view/fragment/createActivity.fragment.xml"
+        },
+        {
+            "name": "view/App.view.xml"
         },
         {
             "name": "view/Detail.view.xml"
@@ -97,23 +115,97 @@
             "name": "view/Dashboard.view.xml"
         },
         {
-            "name": "view/App.view.xml"
+            "name": "Component.js"
+        },
+        {
+            "name": "resources.json",
+            "merged": true
+        },
+        {
+            "name": "annotations/dashboards.xml"
+        },
+        {
+            "name": "di.code-validation.core_issues.json"
+        },
+        {
+            "name": ".user.project.json"
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "model/DataManagerDAO-dbg.js"
+        },
+        {
+            "name": "model/DataManagerDAO.js"
+        },
+        {
+            "name": "model/model.js"
+        },
+        {
+            "name": "model/models-dbg.js"
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "extended_runnable_file.html"
         },
         {
             "name": "localService/metadata.xml"
+        },
+        {
+            "name": "manifest.json"
         },
         {
             "name": "i18n/i18n.properties",
             "raw": "i18n/i18n.properties"
         },
         {
-            "name": "annotations/dashboards.xml"
+            "name": "serviceBinding.js"
         },
         {
-            "name": "index.html"
+            "name": "neo-app.json"
         },
         {
-            "name": "extended_runnable_file.html"
+            "name": "libs/core/worker.js"
+        },
+        {
+            "name": "libs/pdf.js"
+        },
+        {
+            "name": "libs/pdf.worker.js"
+        },
+        {
+            "name": "libs/quagga.min.js"
+        },
+        {
+            "name": "serviceBinding-dbg.js"
+        },
+        {
+            "name": "controller/BaseController-dbg.js"
+        },
+        {
+            "name": "controller/App-dbg.controller.js"
+        },
+        {
+            "name": "controller/BaseController.js"
+        },
+        {
+            "name": "controller/App.controller.js"
+        },
+        {
+            "name": "controller/Detail-dbg.controller.js"
+        },
+        {
+            "name": "controller/Detail.controller.js"
+        },
+        {
+            "name": "controller/Dashboard.controller-BUILD.js"
+        },
+        {
+            "name": "controller/Dashboard.controller.js"
         }
     ]
 }

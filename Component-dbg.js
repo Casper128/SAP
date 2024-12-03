@@ -30,15 +30,37 @@ sap.ui.define([
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
 
-			this.setModel(models.createDetailModel(), "detail");
+			this.setModel(models.createModel(), "detail");
 
-			this.setModel(models.createActivityModel(), "activity");
+			this.setModel(models.createModel(), "activity");
 
-			this.setModel(models.createDateModel(), "date");
+			this.setModel(models.createModel(), "date");
 
-			this.setModel(models.createUser2Model(), "user2");
+			this.setModel(models.createModel(), "user2");
 
-			this.setModel(models.createListModel(), "list");
+			this.setModel(models.createModel({
+				TipoActividad: [{
+					text: "Llamada"
+				}, {
+					text: "Visita"
+				}, {
+					text: "Whatsapp"
+				}, {
+					text: "Envio Email" //Se Añade - Melisa Colorado(NetW) - 22/10/2024
+				}],
+				Estado: [{
+					text: "Activa"
+				}, {
+					text: "En Proceso"
+				}, {
+					text: "Cerrada"
+				}]
+			}), "list");
+
+			this.setModel(models.createModel({
+				visible: false,
+				minDate: new Date()
+			}), "UIState"); //Se Añade - Melisa Colorado(NetW) - 22/10/2024
 
 			// set object DAO
 			this.oDataManagerDAO = new DataManagerDAO(this);

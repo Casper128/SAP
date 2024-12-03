@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Dialog
+		xmlns:l="sap.ui.layout"
+		class="sapUiContentPadding"
+		contentHeight="100%"
+		contentWidth="100%"
+		title="Visor PDF">
+		<html:canvas id="the-canvas"></html:canvas>
+		<buttons>
+			<Button text="Cerrar" press="onCloseDialog" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

@@ -3,18 +3,24 @@
 		<l:VerticalLayout class="sapUiContentPadding" width="100%">
 			<l:content>
 				<Label text="{i18n>activityType}"/>
-				<Select forceSelection="false" selectedKey="{activity>/Tipoactividad}" items="{ path: 'list>/TipoActividad' }" width="100%">
+				<Select forceSelection="false" selectedKey="{activity>/Tipoactividad}" items="{ path: 'list>/TipoActividad' }" width="100%"	change=".onTipoActividadChange">
 					<core:Item key="{list>text}" text="{list>text}"/>
 				</Select>
+				<Label text="{i18n>asunto}" visible="{UIState>/visible}"/> <!--Se Añade - Melisa Colorado(NetW) - 29/11/2024-->
+				<Input id="emailAsunto"     visible="{UIState>/visible}"/> <!--Se Añade - Melisa Colorado(NetW) - 29/11/2024-->
 				<Label text="{i18n>description}"/>
 				<TextArea value="{activity>/Descripcion}" width="100%"/>
-				<Label text="{i18n>date}"/>
+				<Label text="{i18n>endDate}" /> <!--Se Añade - Melisa Colorado(NetW) - 29/11/2024-->
 				<DatePicker
-					value="{path: 'activity>/Fecha', type: 'sap.ui.model.type.Date', formatOptions: {pattern: 'dd/MM/yyyy', strictParsing: true , UTC: true}}"
-					displayFormat="dd/MM/yyyy" width="100%"/>
+					value="{path: 'activity>/Endfecha', type: 'sap.ui.model.type.Date', formatOptions: {pattern: 'dd/MM/yyyy', strictParsing: true , UTC: true}}"
+					displayFormat="dd/MM/yyyy" width="100%" minDate="{UIState>/minDate}"/> <!--Se Añade - Melisa Colorado(NetW) - 29/11/2024-->
+				<!--<Label text="{i18n>date}" />--> <!--Se comento - Melisa Colorado(NetW) - 29/11/2024-->
+				<!--<DatePicker-->
+				<!--	value="{path: 'activity>/Fecha', type: 'sap.ui.model.type.Date', formatOptions: {pattern: 'dd/MM/yyyy', strictParsing: true , UTC: true}}"--> 
+				<!--	displayFormat="dd/MM/yyyy" width="100%" />--> <!--Se comento - Melisa Colorado(NetW) - 29/11/2024-->
 				<Label text="{i18n>hour}"/>
-				<TimePicker dateValue="{activity>/Hora}" displayFormat="HH:mm" width="100%"/>
-				<Label text="{i18n>status}"/>
+				<TimePicker dateValue="{activity>/Hora}" displayFormat="HH:mm" width="100%" visible="false"/>
+				<Label text="{i18n>status}"  visible="false"/>
 				<Select forceSelection="false" selectedKey="{activity>/Estado}" items="{ path: 'list>/Estado' }" width="100%">
 					<core:Item key="{list>text}" text="{list>text}"/>
 				</Select>

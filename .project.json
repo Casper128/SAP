@@ -1,7 +1,7 @@
 {
   "mockpreview": {
-    "mockUri": "",
-    "metadataFilePath": "",
+    "mockUri": "/sap/opu/odata/sap/ZSDGW_GESTION_COTIZACIONES_SRV/",
+    "metadataFilePath": "localService/metadata.xml",
     "loadJSONFiles": false,
     "loadCustomRequests": false,
     "mockRequestsFilePath": ""
@@ -15,6 +15,15 @@
     "sap.watt.uitools.ide.fiori"
   ],
   "build": {
-    "buildRequired": true
+    "buildRequired": true,
+    "targetFolder": "dist",
+    "lastBuildDateTime": "Tue, 26 Nov 2024 03:32:19 GMT"
+  },
+  "translation": {
+    "translationDomain": "",
+    "supportedLanguages": "",
+    "defaultLanguage": "",
+    "defaultI18NPropertyFile": "",
+    "resourceModelName": ""
   }
 }

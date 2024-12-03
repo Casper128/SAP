@@ -8,6 +8,21 @@
 	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
 		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
 	</edmx:Reference>
+	<edmx:Reference Uri="http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/cs02/vocabularies/Org.OData.Aggregation.V1.xml">
+		<edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Capabilities.V1.xml">
+		<edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.xml?api=v2">
+		<edmx:Include Alias="vCard" Namespace="com.sap.vocabularies.Communication.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Core.V1.xml">
+		<edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Measures.V1.xml">
+		<edmx:Include Alias="CQP" Namespace="Org.OData.Measures.V1"/>
+	</edmx:Reference>
 	<edmx:DataServices>
 		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm"
 			Namespace="zui5_gestioncotizaciones.annotations.dashboards.ZSDGW_GESTION_COTIZACIONES_SRV">
@@ -22,6 +37,9 @@
 						</Record>
 						<Record Type="UI.DataField">
 							<PropertyValue Property="Value" Path="Telf1"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Email"/> <!--Se Añade - Melisa Colorado(NetW) - 17/10/2024-->
 						</Record>
 						<Record Type="UI.DataField">
 							<PropertyValue Property="Value" Path="Erdat"/>
@@ -87,6 +105,9 @@
 			<Annotations Target="Metadata.Cotiz/Telf1">
 				<Annotation Term="Common.Label" String="{@i18n&gt;telephone}"/>
 			</Annotations>
+			<Annotations Target="Metadata.Cotiz/Email">
+				<Annotation Term="Common.Label" String="{@i18n&gt;email}"/>
+			</Annotations>
 			<Annotations Target="Metadata.Cotiz/Netwr">
 				<Annotation Term="Common.Label" String="{@i18n&gt;total}"/>
 			</Annotations>
@@ -104,6 +125,9 @@
 			</Annotations>
 			<Annotations Target="Metadata.Cotiz/Bnddt">
 				<Annotation Term="Common.Label" String="{@i18n&gt;endDate}"/>
+			</Annotations>
+			<Annotations Target="Metadata.Cotiz/Email">
+				<Annotation Term="Common.Label" String="{@i18n&gt;email}"/>  <!--Se Añade - Melisa Colorado(NetW) - 21/11/2024-->
 			</Annotations>
 			<Annotations Target="Metadata.Cotiz/Awahr">
 				<Annotation Term="Common.Label" String="{@i18n&gt;probability}"/>

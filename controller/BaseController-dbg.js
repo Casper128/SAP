@@ -97,6 +97,34 @@ sap.ui.define([
 			} else {
 				this.getRouter().navTo("master", {}, true);
 			}
+		},
+		fnGenBin: function(oEvent) {
+			debugger;
+			var sServiceUrl, oModelService, oRead, sFlag, oFilter, sPath, oProperty, sVbeln;
+
+			sPath = this.getView().getBindingContext().sPath;
+			oProperty = this.getView().getBindingContext().getProperty(sPath);
+			sVbeln = oProperty.Vbeln;
+
+			sServiceUrl = this.getView().getModel().sServiceUrl;
+			sFlag = oEvent.getParameters().id;
+
+			oFilter = {
+				$filter: "Vblen eq '" + sVbeln + "' and Flagz eq '" + sFlag + "' and Tpdoc eq '" + oProperty.Auart + "'"
+			};
+
+			oModelService = new sap.ui.model.odata.ODataModel(sServiceUrl, true);
+			oRead = this.fnReadEntity(oModelService, "/RutinaImpresionSet", oFilter);
+			if (oRead.tipo === "S") {
+				if (sFlag === "B") {
+					this._fnPdfJS(oRead.datos.results[0]);
+					//MessageToast.show("Correo generado con éxito", null, "Mensaje del sistema", "OK", null);
+				} else {
+					//MessageBox.error("Error, comuniquese con sistemas", null, "Mensaje del sistema", "OK", null);
+				}
+			} else {
+				//MessageBox.error(oRead.msjs, null, "Mensaje del sistema", "OK", null);
+			}
 		}
 
 	});

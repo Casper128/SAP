@@ -1,75 +1,57 @@
 sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/Device"
-], function (JSONModel, Device) {
+], function(JSONModel, Device) {
 	"use strict";
 
 	return {
-
-		createDeviceModel: function () {
-			var oModel = new JSONModel(Device);
-			oModel.setDefaultBindingMode("OneWay");
+		/**
+		 * Crea un modelo JSON genérico si no recibe parametros crea un modelo vacío.
+		 * @param {Object|undefined} data - Los datos iniciales para el modelo.
+		 * @returns {sap.ui.model.json.JSONModel} Modelo JSON creado.
+		 */
+		createModel: function(data = {}) {
+			const oModel = new JSONModel(data);
 			return oModel;
 		},
 
-		getUserLog: function () {
-			var oModel = new JSONModel();
+		/**
+		 * Crea un modelo de dispositivo basado en sap.ui.Device.
+		 * @param {string|undefined} bindingMode - El modo de binding para el modelo (por defecto es TwoWay).
+		 * @returns {sap.ui.model.json.JSONModel} Modelo de dispositivo.
+		 */
+		createDeviceModel: function(bindingMode = "OneWay") {
+			const oModel = this.createModel(Device);
+			oModel.setDefaultBindingMode(bindingMode);
+			return oModel;
+		},
+
+		/**
+		 * Obtiene información del usuario actual mediante una llamada a la API.
+		 * @returns {sap.ui.model.json.JSONModel} Modelo con datos del usuario.
+		 */
+		getUserLog: function() {
+			const oModel = this.createModel();
 			oModel.loadData("/services/userapi/currentUser");
-			oModel.attachRequestCompleted(function onCompleted(oEvent) {
+			oModel.attachRequestCompleted((oEvent) => {
 				if (oEvent.getParameter("success")) {
-					this.setData({
-						"json": this.getJSON(),
+					oModel.setData({
+						"json": oModel.getJSON(),
 						"status": "Success"
 					}, true);
-					console.log("user-services", this.getJSON());
+					console.log("user-services", oModel.getJSON());
 				} else {
-					var msg = oEvent.getParameter("errorObject").textStatus;
-					if (msg) this.setData("status", msg);
-					else this.setData("status", "Unknown error retrieving user info");
+					const msg = oEvent.getParameter("errorObject").textStatus;
+					if (msg) oModel.setData({
+						"status": msg
+					});
+					else oModel.setData({
+						"status": "Unknown error retrieving user info"
+					});
 				}
 			});
 			return oModel;
 		},
-
-		createDetailModel: function () {
-			var oModel = new JSONModel({});
-			return oModel;
-		},
-
-		createActivityModel: function () {
-			var oModel = new JSONModel({});
-			return oModel;
-		},
-
-		createDateModel: function () {
-			var oModel = new JSONModel({});
-			return oModel;
-		},
-
-		createUser2Model: function () {
-			var oModel = new JSONModel({});
-			return oModel;
-		},
-
-		createListModel: function () {
-			var oModel = new JSONModel({
-				TipoActividad: [{
-					text: "Llamada"
-				}, {
-					text: "Visita"
-				}, {
-					text: "Whatsapp"
-				}],
-				Estado: [{
-					text: "Activa"
-				}, {
-					text: "En Proceso"
-				}, {
-					text: "Cerrada"
-				}, ]
-			});
-			return oModel;
-		}
 
 	};
 });

@@ -26,6 +26,12 @@
 											</customData>
 										</Column>
 										<Column hAlign="Begin">
+											<Text text="Status"/>
+											<customData>
+												<core:CustomData key="p13nData" value='\{"columnKey": "Status","leadingProperty": "Erdat","columnIndex":"10","autoColumnWidth": \{"gap": -4} }'/>
+											</customData>
+										</Column>
+										<Column hAlign="Begin">
 											<Text text="{i18n>begDate}"/>
 											<customData>
 												<core:CustomData key="p13nData"
@@ -57,7 +63,15 @@
 											<Text text="{i18n>actions}"/>
 											<customData>
 												<core:CustomData key="p13nData"
-													value='\{"columnKey": "Kunnr","columnIndex":"0", "leadingProperty": "Kunnr","autoColumnWidth": \{"gap": -4} }'/>
+													value='\{"columnKey": "Kunnr","columnIndex":"0", "leadingProperty": "Kunnr","autoColumnWidth": \{"gap": -4 }'/>
+											</customData>
+										</Column>
+										<Column hAlign="Begin">
+											<!--Se Añade - Melisa Colorado(NetW) -  21/11/2024-->
+											<Text text="{i18n>email}"/>
+											<customData>
+												<core:CustomData key="p13nData"
+													value='\{"columnKey": "Email","columnIndex":"9", "leadingProperty": "Email", "autoColumnWidth": \{"gap": -4} }'/>
 											</customData>
 										</Column>
 									</columns>
@@ -65,6 +79,7 @@
 										<ColumnListItem>
 											<cells>
 												<Link text="{Vbeln}" press="onDetail"/>
+												<Text text="{ path: 'Erdat', formatter: '.formatter.calculateDateDifference', parameters: ['{Bnddt}'] }"/>
 												<Text text="{ path: 'Erdat', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd MMM yyyy', UTC: true } }"/>
 												<Text text="{ path: 'Bnddt', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd MMM yyyy', UTC: true } }"/>
 												<!--<ObjectNumber class="sapUiSmallMarginBottom"-->
@@ -85,9 +100,12 @@
 															<core:CustomData key="Erdat" value="{Erdat}"/>
 														</customData>
 													</OverflowToolbarButton>
+													<!--Añade - Melisa Colorado(NetW) - 16/10/2024-->
+													<Button id="B" press="fnGenBin" icon="sap-icon://pdf-reader"></Button>
 												</HBox>
+												<Text text="{ path: 'Email', type: 'sap.ui.model.type.String', formatOptions: { maxLength: 50 } }"/>
 											</cells>
-										</ColumnListItem>
+										</ColumnListItem>  
 									</items>
 								</Table>
 							</smartTable:SmartTable>
